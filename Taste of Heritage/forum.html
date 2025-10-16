@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><title>Forum Community</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <div class="container">
+    <header class="header"><div class="wood">WOODEN UTENSILS</div><div class="title"><h1>Forum Community</h1><p class="lead">Share recipes, journeys, or tips anonymously. Posts are stored in your browser.</p><div class="nav"><a class="btn-plain" href="index.html">← Back</a></div></div></header>
+
+    <main>
+      <div class="dish-card">
+        <textarea id="postText" rows="4" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)"></textarea>
+        <div style="margin-top:8px">
+          <button id="postBtn" class="btn">Post anonymously</button>
+          <button id="clearForum" class="btn-plain">Clear local posts</button>
+        </div>
+      </div>
+
+      <div id="postsWrap" style="margin-top:12px"></div>
+    </main>
+
+    <footer><div>Forum posts are stored locally only.</div></footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const key = 'taste_forum_posts';
+      const wrap = document.getElementById('postsWrap');
+      const load = ()=> JSON.parse(localStorage.getItem(key) || '[]');
+      const render = ()=>{
+        wrap.innerHTML='';
+        load().slice().reverse().forEach(p=>{
+          const d = document.createElement('div');
+          d.className='dish-card';
+          d.innerHTML = `<div style="font-style:italic;color:#666;font-size:13px">Anonymous • ${new Date(p.time).toLocaleString()}</div><div style="margin-top:8px">${p.text.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')}</div>`;
+          wrap.appendChild(d);
+        });
+      };
+      render();
+      document.getElementById('postBtn').addEventListener('click', ()=>{
+        const txt = document.getElementById('postText').value.trim();
+        if(!txt){ alert('Write something first.'); return; }
+        const arr = load();
+        arr.push({ text: txt, time: Date.now() });
+        localStorage.setItem(key, JSON.stringify(arr));
+        document.getElementById('postText').value='';
+        render();
+      });
+      document.getElementById('clearForum').addEventListener('click', ()=>{
+        if(confirm('Clear local posts?')){ localStorage.removeItem(key); render(); }
+      });
+    });
+  </script>
+</body>
+</html>

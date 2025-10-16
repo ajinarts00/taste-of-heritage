@@ -1,0 +1,44 @@
+/* style.css — Taste of Heritage (Traditional cookbook look) */
+:root{
+  --paper:#f6f0e6;
+  --ink:#2b241f;
+  --wood:#8b5d35;
+  --accent:#c79a60;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:"Times New Roman", Times, serif;-webkit-font-smoothing:antialiased}
+.container{max-width:980px;margin:28px auto;padding:22px;background:linear-gradient(180deg,#fffdf9,#f6f0e6);border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.03)}
+.header{display:flex;gap:18px;align-items:center}
+.wood{width:120px;height:120px;border-radius:8px;background:linear-gradient(180deg,#c79760,#8b5d35);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;box-shadow:inset 0 -6px 18px rgba(0,0,0,0.14)}
+.title h1{margin:0;font-size:32px}
+.lead{margin:6px 0 0 0;opacity:0.9}
+.meta{margin-top:8px;font-size:13px;color:#5b4636}
+
+/* layout */
+.nav{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.btn{background:var(--wood);color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;font-size:14px}
+.btn-plain{background:transparent;color:var(--ink);border:1px solid rgba(0,0,0,0.06);padding:8px 10px;border-radius:8px;text-decoration:none}
+
+/* recipe list */
+.recipes{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
+.dish-card{background:#fff9f2;border-radius:8px;padding:12px;border:1px solid rgba(0,0,0,0.03);box-shadow:0 8px 18px rgba(0,0,0,0.04)}
+.dish-header{display:flex;gap:12px;align-items:center}
+.dish-header img{width:180px;height:120px;object-fit:cover;border-radius:6px;border:1px solid rgba(0,0,0,0.04)}
+.dish-title{font-size:20px;margin:0}
+.dish-sub{font-size:13px;color:#5b4636;margin-top:4px}
+
+.section{margin-top:12px}
+.section h4{margin:6px 0;font-size:16px;color:#5b4636;text-decoration:underline}
+ul.ingredients{margin:8px 0 8px 20px}
+ol.steps{margin:8px 0 8px 20px}
+.serve{margin-top:8px;font-style:italic;color:#4b3a2f}
+
+/* footer */
+footer{margin-top:20px;color:#6b5a4a;font-size:13px;text-align:center}
+
+/* responsive */
+@media(max-width:760px){
+  .header{flex-direction:column;align-items:flex-start}
+  .dish-header{flex-direction:column}
+  .dish-header img{width:100%;height:200px}
+}

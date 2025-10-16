@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><title>Revival Food Challenge</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <div class="container">
+    <header class="header"><div class="wood">WOODEN UTENSILS</div><div class="title"><h1>Revival Food Challenge</h1><p class="lead">Try this week's Tradish dish, take a photo and upload (anonymous). Entries are stored in your browser.</p><div class="nav"><a class="btn-plain" href="index.html">← Back</a></div></div></header>
+
+    <main>
+      <section style="margin-top:12px">
+        <div class="dish-card" id="current">
+          <h2 class="dish-title">This week's challenge: Nasi Lemak</h2>
+          <p class="dish-sub">Try the Tradish recipe and upload your photo below.</p>
+        </div>
+
+        <div class="dish-card upload-area" style="margin-top:12px">
+          <input id="uploadName" placeholder="Dish name (optional)" style="padding:8px;width:100%;margin-bottom:8px;border-radius:6px;border:1px solid rgba(0,0,0,0.06)">
+          <input id="uploadFile" type="file" accept="image/*" style="margin-bottom:8px">
+          <button id="uploadBtn" class="btn">Upload (anonymous)</button>
+          <div id="uploadGallery" style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap"></div>
+        </div>
+
+      </section>
+    </main>
+
+    <footer><div>Uploads stored in your browser (localStorage). Images are private on your device.</div></footer>
+  </div>
+
+  <script>
+    // lightweight upload logic (localStorage)
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const key = 'taste_revival_entries';
+      const gallery = document.getElementById('uploadGallery');
+      const load = ()=> JSON.parse(localStorage.getItem(key) || '[]');
+      const render = ()=>{
+        gallery.innerHTML='';
+        load().slice().reverse().forEach(e=>{
+          const d = document.createElement('div');
+          d.style.minWidth='160px';
+          d.style.background='#fff';
+          d.style.padding='8px';
+          d.style.borderRadius='8px';
+          d.style.boxShadow='0 6px 14px rgba(0,0,0,0.03)';
+          d.innerHTML = `<div style="font-weight:600">${e.name||'Anonymous'}</div><img src="${e.image}" style="width:160px;height:110px;object-fit:cover;border-radius:6px;margin-top:8px">`;
+          gallery.appendChild(d);
+        });
+      };
+      render();
+      document.getElementById('uploadBtn').addEventListener('click', ()=>{
+        const file = document.getElementById('uploadFile').files[0];
+        if(!file){ alert('Choose an image first.'); return; }
+        const reader = new FileReader();
+        reader.onload = (ev)=>{
+          const arr = load();
+          arr.push({ name: document.getElementById('uploadName').value || 'Anonymous', image: ev.target.result, time: Date.now() });
+          localStorage.setItem(key, JSON.stringify(arr));
+          render();
+          document.getElementById('uploadFile').value='';
+          document.getElementById('uploadName').value='';
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+  </script>
+</body>
+</html>
