@@ -7,23 +7,33 @@
   <link rel="stylesheet" href="css/homepage.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
+  <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('nav ul');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
 <body>
 
   <!-- NAV -->
   <header class="navbar">
     <div class="logo">Taste of Heritage</div>
 
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="top-recipes.html">Top Recipes</a></li>
-        <li><a href="tradish.html">Tradish</a></li>
-        <li><a href="challenge.html">Food Revival</a></li>
-        <li><a href="forum.html">Forum</a></li>
-      </ul>
-    </nav>
-
-    <div class="menu-toggle" id="menuToggle">☰</div>
+<nav>
+  <div class="logo">Taste of Heritage</div>
+  <div class="menu-toggle">☰</div>
+  <ul>
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#">Top Recipes</a></li>
+    <li><a href="#">Tradish</a></li>
+    <li><a href="#">Challenge</a></li>
+    <li><a href="#">Forum</a></li>
+  </ul>
+</nav>
+    
   </header>
 
   <!-- HERO -->
@@ -122,3 +132,4 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+
