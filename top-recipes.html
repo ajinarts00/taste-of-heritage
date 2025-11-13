@@ -5,22 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Top Traditional Recipes | Taste of Heritage</title>
   <link rel="stylesheet" href="css/recipes.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
 </head>
+  <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('nav ul');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
 <body>
 
   <!-- 🧭 Navigation -->
   <header class="navbar">
-    <div class="logo">Taste of Heritage</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="top-recipes.html" class="active">Top Recipes</a></li>
-        <li><a href="tradish.html">Tradish</a></li>
-        <li><a href="challenge.html">Food Revival</a></li>
-        <li><a href="forum.html">Forum</a></li>
-      </ul>
-    </nav>
+  <div class="logo">Taste of Heritage</div>
+  <div class="menu-toggle">☰</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#" class="active">Top Recipes</a></li>
+    <li><a href="#">Tradish</a></li>
+    <li><a href="#">Challenge</a></li>
+    <li><a href="#">Forum</a></li>
+  </ul>
   </header>
 
   <!-- 🍛 Page Title -->
@@ -132,4 +139,5 @@
 </body>
 </html>
 <!DOCTYPE html>
+
 <html lang="en">
