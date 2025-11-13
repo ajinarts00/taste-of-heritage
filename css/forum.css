@@ -1,0 +1,199 @@
+/* ===== GENERAL ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #feddb7; /* soft beige */
+  color: #333;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  background-color: #7B1E1E; /* red velvet */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #ffd700; /* gold highlight */
+}
+
+/* ===== HERO HEADER ===== */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #e9dfd2;
+}
+
+.hero h2 {
+  color: #a4161a;
+  font-size: 2.2rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-top: 10px;
+}
+
+/* ===== POST FORM ===== */
+.post-section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.post-section h3 {
+  color: #a4161a;
+  margin-bottom: 20px;
+}
+
+#postForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 600px;
+  margin: auto;
+}
+
+#postForm input,
+#postForm textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #a4161a;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+#postForm button {
+  background-color: #a4161a;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#postForm button:hover {
+  background-color: #7c0f13;
+}
+
+/* ===== FORUM FEED ===== */
+.forum-feed {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.forum-feed h3 {
+  color: #a4161a;
+  margin-bottom: 30px;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ===== POST CARD ===== */
+.post-card {
+  background-color: #fff;
+  border: 2px solid #ffd700;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  animation: fadeSlideUp 0.5s ease-in-out;
+}
+
+.post-card h4 {
+  color: #a4161a;
+  margin: 0 0 10px 0;
+}
+
+.post-card p {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 0 0 10px 0;
+}
+
+/* ===== POST INTERACTIONS ===== */
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.like-btn, .comment-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #a4161a;
+  transition: transform 0.2s;
+}
+
+.like-btn:hover, .comment-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ===== COMMENTS ===== */
+.comment-section {
+  margin-top: 15px;
+  border-top: 1px solid #ffd700;
+  padding-top: 10px;
+}
+
+.comment {
+  background-color: #f4e1c1;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+/* ===== CARD ANIMATION ===== */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
