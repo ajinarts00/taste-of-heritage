@@ -183,4 +183,42 @@ footer a {
 }
 .country-card.active img {
   border-color: #1A3D7C;
+
+}
+/* ✅ Responsive Design Fixes for Mobile */
+@media (max-width: 768px) {
+  /* Make containers use full width */
+  .recipes-container,
+  .countries-container {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    padding: 10px;
+  }
+
+  /* Make cards smaller and fit better on mobile */
+  .recipe-card,
+  .country-card {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  /* Adjust headings */
+  h1, h2, h3 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  /* Fix buttons or popups */
+  button,
+  .view-recipe-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  /* Make popup fit in screen */
+  .recipe-popup {
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
 }
