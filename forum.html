@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum | Taste of Heritage</title>
+  <link rel="stylesheet" href="css/forum.css">
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <h1>Taste of Heritage</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="top-recipes.html">Top Recipes</a></li>
+      <li><a href="tradish.html">Tradish</a></li>
+      <li><a href="challenge.html">Challenge</a></li>
+      <li><a href="forum.html" class="active">Forum</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== HERO HEADER ===== -->
+  <header class="hero">
+    <h2>Community Forum 📝</h2>
+    <p>Share your food stories, comment on others, and celebrate our culinary heritage — all anonymously!</p>
+  </header>
+
+  <!-- ===== POST FORM ===== -->
+  <section class="post-section">
+    <h3>Share Your Story</h3>
+    <form id="postForm">
+      <input type="text" id="postTitle" placeholder="Title (optional)">
+      <textarea id="postMessage" placeholder="Write your story here..." required></textarea>
+      <button type="submit">Post</button>
+    </form>
+  </section>
+
+  <!-- ===== FORUM FEED ===== -->
+  <section class="forum-feed">
+    <h3>Recent Stories</h3>
+    <div id="forumPosts" class="posts"></div>
+  </section>
+
+  <script src="js/forum.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
