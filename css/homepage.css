@@ -1,107 +1,124 @@
 /* ===== GLOBAL ===== */
-body {
-  margin: 0;
+:root{
+  --blue:#1A3D7C;
+  --redvelvet:#7B1E1E;
+  --gold:#D4AF37;
+  --bg:#FFF8F0;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
   font-family: Arial, sans-serif;
-  background-color: #feddb7; /* soft beige */
-  color: #333;
-  text-align: center;
+  background-color:var(--bg);
+  color:#333;
 }
 
 /* ===== NAVBAR ===== */
-.navbar {
-  background-color: #7B1E1E;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+.navbar{
+  background-color:var(--blue);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 40px;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
+/* ===== NAVBAR RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
 }
+.logo{font-weight:bold;font-size:1.4rem}
+.nav-links{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;color:white;font-weight:600}
+.nav-links a.active, .nav-links a:hover{color:var(--gold)}
+.menu-toggle{display:none;font-size:1.8rem;cursor:pointer}
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  margin: 0;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: #D4AF37;
-}
-
-/* ===== HERO SECTION ===== */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 40px;
-  background-color: #FFF8F0;
-  text-align: left;
-  gap: 40px;
-}
-
-.hero-text {
-  max-width: 500px;
-}
-
-.hero-text h1 {
-  color: #7B1E1E;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.hero-text p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.cta-button {
-  background-color: #D4AF37;
-  color: #1A3D7C;
-  text-decoration: none;
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 20px;
-  transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-  background-color: #c39e2f;
-}
-
-.hero-image img {
-  max-width: 420px;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* ===== COUNTRIES SECTION ===== */
+/* ===== HERO ===== */
+.hero{display:flex;flex-wrap:wrap;gap:30px;align-items:center;justify-content:center;padding:60px 20px}
+.hero-text{max-width:520px;text-align:left}
+.hero-text h1{color:var(--redvelvet);font-size:2.4rem;margin-bottom:12px}
+.hero-text p{line-height:1.6}
+.cta-button{background:var(--gold);color:var(--blue);padding:12px 24px;border-radius:30px;text-decoration:none;font-weight:700}
+.hero-image img{max-width:420px;width:100%;border-radius:18px;box-shadow:0 6px 18px rgba(0,0,0,0.15)}
 .countries {
-  padding: 60px 20px;
-  background-color: #fff;
+  text-align: center; /* centers both h2 and p */
+  margin-top: 60px;
+.countries {
+  text-align: center;
+  margin-top: 60px;
+  padding: 0 15px; /* adds a little breathing room on phones */
 }
 
 .countries h2 {
-  color: #7B1E1E;
+  color: #7B1E1E; /* velvet red */
   font-size: 2rem;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
 }
 
+.countries h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #D4AF37; /* gold accent line */
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.countries p {
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+/* ===== COUNTRIES GRID (4-4-3 centered rows) ===== */
+/* Use flex so rows are naturally centered when there are fewer items in a row */
+.country-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:center; /* centers rows with fewer items */
+  align-items:flex-start;
+  max-width:1100px;
+  margin:40px auto;
+  padding:0 10px;
+}
+/* ===== COUNTRY GRID RESPONSIVE DESIGN ===== */
+
+/* Default: 4 per row (desktop) */
 .country-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -110,78 +127,117 @@ body {
   margin: 40px auto;
   justify-items: center;
 }
-
-.country-card {
-  background-color: #1A3D7C;
-  color: white;
-  padding: 20px;
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  transition: transform 0.3s, background-color 0.3s;
+/* ===== FIX LAST ROW CENTERING ===== */
+@media (min-width: 901px) {
+  .country-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  .country-card {
+    flex: 0 0 180px;
+  }
+}
+/* 3 per row for medium screens (tablets) */
+@media (max-width: 900px) {
+  .country-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
 }
 
-.country-card:hover {
-  background-color: #D4AF37;
-  color: #1A3D7C;
-  transform: scale(1.1);
+/* 2 per row for small screens (phones) */
+@media (max-width: 600px) {
+  .country-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .country-card {
+    width: 100px;
+    height: 100px;
+    font-size: 0.9rem;
+  }
 }
 
-/* Fix layout for last row (3 countries) */
+/* Optional: make last row (3 countries) always centered */
 .country-grid .country-card:nth-last-child(-n+3) {
-  grid-column: span 1;
   justify-self: center;
 }
-
-/* ===== MISSION SECTION ===== */
-.mission {
-  background-color: #1A3D7C;
-  color: white;
-  padding: 60px 30px;
+/* each card is width-controlled so first two rows show 4 columns when space allows */
+.country-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  width:calc(25% - 30px);
+  max-width:200px;
+  min-width:120px;
+  text-align:center;
+  background:transparent; /* circle itself contains color */
 }
 
-.mission h2 {
-  color: #7B1E1E;
-  background-color: #FFF8F0;
-  display: inline-block;
-  padding: 8px 20px;
-  border-radius: 30px;
-  font-weight: bold;
-  margin-bottom: 20px;
+/* circle that holds the image */
+.circle{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--blue);
+  transition:transform .28s ease, box-shadow .28s ease, background-color .28s;
+  border:4px solid rgba(255,255,255,0.06);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+.circle img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
 }
 
-/* ===== FOOTER ===== */
-footer {
-  background-color: #7B1E1E;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9rem;
-}
-footer a {
-  color: #D4AF37;
-  text-decoration: none;
-}
-/* ===== COUNTRY FLAG STYLES ===== */
-.country-card img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #D4AF37;
-  margin-bottom: 10px;
-  transition: transform 0.3s;
+/* country name below circle */
+.country-card h3{
+  margin-top:12px;
+  color:var(--blue);
+  font-size:1rem;
+  font-weight:700;
 }
 
-.country-card:hover img {
-  transform: scale(1.1);
+/* hover effect — card slightly up with gold glow on circle */
+.country-card:hover .circle{
+  transform: translateY(-8px) scale(1.03);
+  box-shadow:0 18px 30px rgba(0,0,0,0.18);
+  border-color: #b8860b;
+  background: var(--gold);
 }
-.country-card.active img {
-  border-color: #1A3D7C;
+.country-card:hover h3{ color: var(--redvelvet) }
 
+/* ensure last row (3 items) appear centered — because container uses justify-content:center they will be centered automatically */
+
+/* ===== MISSION & FOOTER ===== */
+.mission{background:var(--blue);color:white;padding:56px 26px;text-align:center}
+.mission h2{color:var(--redvelvet);background:var(--bg);display:inline-block;padding:8px 18px;border-radius:30px}
+footer{background:var(--redvelvet);color:white;text-align:center;padding:14px}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1000px){
+  .country-card{ width: calc(33.333% - 30px); } /* 3 per row approx */
 }
+@media (max-width: 768px){
+  .navbar{padding:12px 18px}
+  .nav-links{display:none;flex-direction:column; width:100%; background:var(--blue); margin-top:10px; padding:10px; border-radius:8px}
+  .nav-links.show{display:flex}
+  .menu-toggle{display:block;color:white}
+  .hero{padding:40px 16px; text-align:center}
+  .hero-text{ text-align:center }
+  .country-card{ width: 46%; min-width:150px } /* 2 per row */
+  .circle{ width:110px; height:110px }
+}
+@media (max-width: 420px){
+  .country-card{ width: 100%; max-width:320px }
+  .circle{ width:100px; height:100px }
+  }
