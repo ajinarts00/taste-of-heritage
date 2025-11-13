@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Revival Challenge | Taste of Heritage</title>
+  <link rel="stylesheet" href="css/challenge.css">
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <h1>Taste of Heritage</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="top-recipes.html">Top Recipes</a></li>
+      <li><a href="tradish.html">Tradish</a></li>
+      <li><a href="challenge.html" class="active">Challenge</a></li>
+      <li><a href="forum.html">Forum</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <header class="hero">
+    <h2>Food Revival Challenge 🍲</h2>
+    <p>Upload a traditional dish photo or share a story about a forgotten recipe.  
+    Inspire others and bring heritage food back to life!</p>
+  </header>
+
+  <!-- ===== UPLOAD SECTION ===== -->
+  <section class="upload-section">
+    <h3>Submit Your Entry</h3>
+    <form id="uploadForm">
+      <input type="text" id="dishName" placeholder="Dish name (optional)">
+      <textarea id="story" placeholder="Share your story..."></textarea>
+      <input type="file" id="imageUpload" accept="image/png, image/jpeg">
+      <button type="submit">Upload</button>
+    </form>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery-section">
+    <h3>Community Submissions</h3>
+    <div id="gallery" class="gallery"></div>
+  </section>
+
+  <script src="js/challenge.js"></script>
+</body>
+</html>
