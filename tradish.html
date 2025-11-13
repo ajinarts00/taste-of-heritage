@@ -5,22 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tradish — Taste of Heritage</title>
   <link rel="stylesheet" href="css/tradish.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
 </head>
+  <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('nav ul');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
 <body>
 
   <!-- NAV -->
   <header class="navbar">
-    <div class="logo">Taste of Heritage</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="top-recipes.html">Top Recipes</a></li>
-        <li><a href="tradish.html" class="active">Tradish</a></li>
-        <li><a href="challenge.html">Food Revival</a></li>
-        <li><a href="forum.html">Forum</a></li>
-      </ul>
-    </nav>
+  <div class="logo">Taste of Heritage</div>
+  <div class="menu-toggle">☰</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#" class="active">Top Recipes</a></li>
+    <li><a href="#">Tradish</a></li>
+    <li><a href="#">Challenge</a></li>
+    <li><a href="#">Forum</a></li>
+  </ul>
   </header>
 
   <!-- PAGE HEADER -->
@@ -94,3 +101,4 @@
   <script src="assets/js/main.js"></script>
 </body>
 </html>
+
