@@ -241,3 +241,56 @@ body{
   transform: translateY(-10px) scale(1.03);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+/* ===============================
+   📱 Mobile Responsive Styles
+   =============================== */
+@media (max-width: 768px) {
+
+  /* Navbar stack vertically */
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Make slider scroll smoothly */
+  .country-slider {
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    scroll-behavior: smooth;
+  }
+
+  .country-card {
+    min-width: 120px;
+    margin: 0 6px;
+  }
+
+  /* Recipe cards layout for small screens */
+  .recipes-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
+  }
+
+  /* Adjust modal for mobile */
+  .modal-inner {
+    width: 90%;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-body img {
+    width: 100%;
+    height: auto;
+  }
+}
